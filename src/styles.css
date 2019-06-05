@@ -1,0 +1,38 @@
+body {
+  font-family: sans-serif;
+  /*background: url(/src/assets/background.png) no-repeat center center fixed;
+  background-size: cover;*/
+  color: white;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* .toilet {
+  position: relative;
+  margin: 0 auto;
+  display: block;
+  height: 30em;
+  width: 25em;
+
+  cursor: url("https://ucarecdn.com/6499c9ec-bfd8-4fa4-b9a7-d4cc7fe9716d/-/resize/x128/"),
+    auto;
+
+  background: url(/src/assets/sortir.png) no-repeat center center;
+  background-size: cover;
+}
+
+.shit {
+  position: absolute;
+
+  width: 30px;
+  height: 30px;
+
+  background: sienna;
+  border-radius: 50%;
+}
+ */
