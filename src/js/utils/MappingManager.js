@@ -13,6 +13,17 @@ export default class MappingManager {
     return targetRect;
   }
 
+  static setScale(targetRect, maxWidth, maxHeight) {
+    const scale = Math.min(
+      maxWidth / targetRect.width,
+      maxHeight / targetRect.height
+    );
+    targetRect.width = targetRect.width * scale;
+    targetRect.height = targetRect.height * scale;
+    MappingManager.roundSides(targetRect);
+    return targetRect;
+  }
+
   static alignToCenter(targetRect, areaRect, neededRoundPosition = true) {
     targetRect.x = areaRect.x + (areaRect.width - targetRect.width) / 2;
     targetRect.y = areaRect.y + (areaRect.height - targetRect.height) / 2;

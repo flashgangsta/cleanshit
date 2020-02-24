@@ -4,7 +4,7 @@ export default class AssetsLoader extends EventTarget {
     this.init();
     this.imagesLoaded = 0;
     this.imagesLoaded = false;
-    this.PATH = "/src/assets/";
+    this.PATH = "static/images/";
     this.IMAGES = [
       { key: "background", filename: "background.png" },
       { key: "dirt", filename: "dirt.png" },
@@ -19,9 +19,11 @@ export default class AssetsLoader extends EventTarget {
   }
 
   start() {
+    console.log("AssetsLoader.start()");
     for (let data of this.IMAGES) {
       let image = new Image();
-      image.addEventListener("load", () => {
+      image.addEventListener("load", (event) => {
+        console.log("AssetsLoader: image" + image + "loaded");
         this.onImageLoaded(image, data);
       });
       image.src = this.PATH + data.filename;
@@ -29,6 +31,7 @@ export default class AssetsLoader extends EventTarget {
   }
 
   onImageLoaded(image, data) {
+    console.log("AssetsLoader.onImageLoaded")
     this.imagesLoaded++;
     this.imagesByKeyList[data.key] = image;
     if (this.imagesLoaded === this.IMAGES.length) {

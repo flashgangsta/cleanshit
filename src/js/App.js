@@ -21,11 +21,10 @@ export default class App {
       this.onAllAssetsLoaded.bind(this)
     );
     this.assetsLoader.start();
-
-    //this.draw();
   }
 
   draw() {
+    this.display.update();
     requestAnimationFrame(this.draw.bind(this));
   }
 
@@ -37,5 +36,11 @@ export default class App {
   onAllAssetsLoaded(event) {
     console.log("onAllAssetsLoaded!!");
     this.display.drawPlayField(this.assetsLoader);
+    this.startCleaning();
+  }
+
+  startCleaning() {
+    this.display.startCleaning();
+    this.draw();
   }
 }
