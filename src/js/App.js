@@ -9,17 +9,13 @@ export default class App {
   }
 
   init() {
-    console.log("App.init()");
     this.display = new Display();
     this.assetsLoader = new AssetsLoader();
 
-    //window.addEventListener("resize", this.onWindowResize.bind(this));
+    window.addEventListener("resize", this.onWindowResize.bind(this));
     this.onWindowResize();
 
-    this.assetsLoader.addEventListener(
-      "AllAssetsLoaded",
-      this.onAllAssetsLoaded.bind(this)
-    );
+    this.assetsLoader.addEventListener("AllAssetsLoaded", this.onAllAssetsLoaded.bind(this));
     this.assetsLoader.start();
   }
 
@@ -35,6 +31,8 @@ export default class App {
 
   onAllAssetsLoaded(event) {
     console.log("onAllAssetsLoaded!!");
+      //todo: remove event listener
+    //this.assetsLoader.removeEventListener("AllAssetsLoaded", arguments.callee);
     this.display.drawPlayField(this.assetsLoader);
     this.startCleaning();
   }
